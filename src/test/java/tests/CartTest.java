@@ -33,5 +33,5 @@ public class CartTest extends BaseTest {
         softAssert.assertFalse(cartPage.isProductDisplayedInCart("Sauce Labs Onesie"), "Товар Onesie отображается в корзине");
         softAssert.assertAll();
     }
-    
+
 }

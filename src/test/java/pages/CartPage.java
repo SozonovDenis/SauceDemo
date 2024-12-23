@@ -15,8 +15,7 @@ public class CartPage {
     }
 
     public Boolean isProductDisplayedInCart(String product) {
-        Boolean isProductDisplayed = !driver.findElements(By.xpath(String.format(inCartProductPattern, product))).isEmpty();
-        return isProductDisplayed;
+        return !driver.findElements(By.xpath(String.format(inCartProductPattern, product))).isEmpty();
     }
 
     public void RemoveFromCartButton(String product) {
