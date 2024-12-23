@@ -11,9 +11,8 @@ public class ProductsPage {
     By firstAddToCartButton = By.cssSelector("[id*='add-to-cart-sauce-labs']");
     By firstRemoveButton = By.cssSelector("[id*='remove-sauce-labs']");
     By goodsCounterBadge = By.cssSelector("[class='shopping_cart_badge']");
-    By addBackpackButton = By.id("add-to-cart-sauce-labs-backpack");
-    By addFleeceJacket = By.id("add-to-cart-sauce-labs-fleece-jacket");
     By cartIcon = By.cssSelector("[class='shopping_cart_link']");
+    String addToCartPattern = "//div[text()='%s']//ancestor::div[@class='inventory_item']//button";
 
 
     public ProductsPage(WebDriver driver) {
@@ -40,16 +39,12 @@ public class ProductsPage {
         return driver.findElement(goodsCounterBadge).getText();
     }
 
-    public void addBackpack() {
-        driver.findElement(addBackpackButton).click();
-    }
-
-    public void addFleeceJacket() {
-        driver.findElement(addFleeceJacket).click();
-    }
-
     public void moveToCartPage() {
         driver.findElement(cartIcon).click();
+    }
+
+    public void addToCart(String product) {
+        driver.findElement(By.xpath(String.format(addToCartPattern, product))).click();
     }
 
 }
