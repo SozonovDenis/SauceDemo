@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -16,10 +17,12 @@ public class LoginPage {
         this.driver = driver;
     }
 
+    @Step("Открытие страницы LoginPage")
     public void open() {
         driver.get("https://www.saucedemo.com/");
     }
 
+    @Step("Вход в систему с логином: {username} и паролем: {password}")
     public void login(String username, String password) {
         driver.findElement(usernameField).sendKeys(username);
         driver.findElement(passwordField).sendKeys(password);
@@ -29,5 +32,4 @@ public class LoginPage {
     public String getErrorMessage() {
         return driver.findElement(errorMessage).getText();
     }
-
 }
