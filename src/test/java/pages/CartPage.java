@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -18,8 +19,8 @@ public class CartPage {
         return !driver.findElements(By.xpath(String.format(inCartProductPattern, product))).isEmpty();
     }
 
+    @Step("Удаление товара с названием {product}")
     public void RemoveFromCartButton(String product) {
         driver.findElement(By.xpath(String.format(RemoveFromCartButtonPattern, product))).click();
     }
-
 }

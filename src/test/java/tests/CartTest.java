@@ -1,12 +1,20 @@
 package tests;
 
+import io.qameta.allure.*;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 public class CartTest extends BaseTest {
 
     //Добавление в корзину Рюкзака и Флисовой кофты, проверка их наличия в корзине.
-    @Test
+    @Test(testName = "Проверка добавления товара в корзину")
+    @Description("Проверка добавления товара в корзину")
+    @Severity(SeverityLevel.CRITICAL)
+    @Epic("Saucedemo")
+    @Feature("Cart")
+    @Story("Добавление товара в корзину")
+    @TmsLink("jira link")
+    @Issue("Issue link")
     public void checkCartForAddedGoods() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -20,7 +28,14 @@ public class CartTest extends BaseTest {
     }
 
     //Удаление товара в корзине, проверка отображения товаров в корзине.
-    @Test
+    @Test(testName = "Удаление товара из корзины")
+    @Description("Удаление товара из корзины")
+    @Severity(SeverityLevel.CRITICAL)
+    @Epic("Saucedemo")
+    @Feature("Cart")
+    @Story("Удаление товара из корзины")
+    @TmsLink("jira link")
+    @Issue("Issue link")
     public void removeGoodsFromCartPage() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -33,5 +48,4 @@ public class CartTest extends BaseTest {
         softAssert.assertFalse(cartPage.isProductDisplayedInCart("Sauce Labs Onesie"), "Товар Onesie отображается в корзине");
         softAssert.assertAll();
     }
-
 }
