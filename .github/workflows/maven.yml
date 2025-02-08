@@ -10,7 +10,8 @@ name: SauceDemo
 
 on:
   push:
-    branches: [ "feature/allure-monitoring" ]
+    branches:
+      - '**'
   pull_request:
     branches: [ "feature/allure-monitoring" ]
   schedule:
