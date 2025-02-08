@@ -10,14 +10,17 @@ name: SauceDemo
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - '**'
   pull_request:
-    branches: [ "main" ]
+    branches: [ "feature/allure-monitoring" ]
+  schedule:
+    - cron: '59 23 31 12 6'
 
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v4
@@ -25,7 +28,12 @@ jobs:
       uses: actions/setup-java@v4
       with:
         java-version: '17'
-        distribution: 'temurin'
+        distribution: 'oracle'
         cache: maven
+    - name: Setup browser
+      uses: abhi1693/setup-browser@v0.3.4
+      with:
+        browser: firefox
+        version: latest
     - name: Run Test
       run: mvn clean test
