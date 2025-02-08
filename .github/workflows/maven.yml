@@ -10,9 +10,9 @@ name: SauceDemo
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "feature/allure-monitoring" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "feature/allure-monitoring" ]
   schedule:
     - cron: '59 23 31 12 6'
 
